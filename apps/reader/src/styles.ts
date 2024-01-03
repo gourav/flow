@@ -20,6 +20,9 @@ export const defaultStyle = {
   '::selection': {
     'background-color': 'rgba(3, 102, 214, 0.2)',
   },
+  p: {
+    'text-indent': '2rem'
+  }
 }
 
 const camelToSnake = (str: string) =>
@@ -43,7 +46,7 @@ export function updateCustomStyle(
   if (!contents || !settings) return
 
   const { zoom, ...other } = settings
-  let css = `a, article, cite, div, li, p, pre, span, table, body {
+  let css = `a, article, cite, div, li, p, pre, span, table, body, h1, h2, h3, h4, h5, h6 {
     ${mapToCss(other)}
   }`
 
