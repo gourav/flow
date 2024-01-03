@@ -3,8 +3,8 @@
   "private": true,
   "packageManager": "pnpm@7.10.0",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider turbo run build",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider turbo run dev --parallel",
     "lint": "turbo run lint",
     "release": "pnpm -r publish --access public",
     "prepare": "husky install"

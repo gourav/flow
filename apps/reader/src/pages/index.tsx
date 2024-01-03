@@ -26,7 +26,6 @@ import {
   useTranslation,
 } from '../hooks'
 import { reader, useReaderSnapshot } from '../models'
-import { lock } from '../styles'
 import { dbx, pack, uploadData } from '../sync'
 import { copy } from '../utils'
 

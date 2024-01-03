@@ -22,6 +22,13 @@ export const defaultStyle = {
   },
   p: {
     'text-indent': '2rem'
+  },
+
+  'p a:any-link': {
+    color: '#0f172a !important',
+    'font-weight': '700 !important',
+    'text-decoration-line': 'underline !important',
+    'text-underline-offset': '6px'
   }
 }
 

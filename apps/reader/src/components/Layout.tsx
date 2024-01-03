@@ -153,14 +153,14 @@ function ViewActionBar({ className, env }: EnvActionBarProps) {
     <ActionBar className={className}>
       {viewActions
         .filter((a) => a.env & env)
-        .map(({ name, title, Icon, click }) => {
+        .map(({ name, title, Icon }) => {
           const active = action === name
           return (
             <Action
               title={t(`${title}.title`)}
               Icon={Icon}
               active={active}
-              onClick={() => click ? click() : setAction(active ? undefined : name)}
+              onClick={() => setAction(active ? undefined : name)}
               key={name}
             />
           )
