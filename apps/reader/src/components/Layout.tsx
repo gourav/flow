@@ -73,7 +73,6 @@ interface IAction {
 interface IViewAction extends IAction {
   name: Action
   View: React.FC<any>
-  click?: () => void
 }
 
 const viewActions: IViewAction[] = [
@@ -125,14 +124,6 @@ const viewActions: IViewAction[] = [
     Icon: MdOutlineLightMode,
     View: ThemeView,
     env: Env.Desktop | Env.Mobile,
-  },
-  {
-    name: 'github',
-    title: 'GitHub',
-    Icon: FiGithub,
-    env: Env.Desktop | Env.Mobile,
-    View: ThemeView,
-    click: () => window.open('github.com/gourav/flow')
   }
 ]
 
@@ -224,6 +215,12 @@ function PageActionBar({ env }: EnvActionBarProps) {
             key={i}
           />
         ))}
+      <Action
+          title="GitHub"
+          Icon={ FiGithub }
+          onClick={ () => {
+            window.open('https://github.com/gourav/flow/issues')
+          } }></Action>
     </ActionBar>
   )
 }
