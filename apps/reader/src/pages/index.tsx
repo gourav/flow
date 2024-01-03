@@ -330,12 +330,7 @@ const Library: React.FC = () => {
 
       <div className="scroll h-full">
         <ul
-          className="grid"
-          style={{
-            gridTemplateColumns: `repeat(auto-fill, minmax(calc(80px + 3vw), 1fr))`,
-            columnGap: lock(16, 32),
-            rowGap: lock(24, 40),
-          }}
+          className="grid grid-cols-6"
         >
           {books.map((book) => (
             <Book
@@ -384,7 +379,7 @@ const Book: React.FC<BookProps> = ({
     <div className="relative flex flex-col">
       <div
         role="button"
-        className="border-inverse-on-surface relative border"
+        className="border-inverse-on-surface relative border-2"
         onClick={async () => {
           if (select) {
             toggle(book.id)
@@ -425,7 +420,7 @@ const Book: React.FC<BookProps> = ({
       </div>
 
       <div
-        className="line-clamp-2 text-on-surface-variant typescale-body-small lg:typescale-body-medium mt-2 w-full"
+        className="text-on-surface-variant typescale-body-small lg:typescale-body-medium mt-2 w-full flex flex-row items-center gap-2"
         title={book.name}
       >
         <MdCheckCircle
@@ -433,9 +428,11 @@ const Book: React.FC<BookProps> = ({
             'mr-1 mb-0.5 inline',
             remoteFile ? 'text-tertiary' : 'text-surface-variant',
           )}
-          size={16}
+          size={32}
         />
-        {book.name}
+        <div className="line-clamp-2 ">
+        {book.metadata.title}
+        </div>
       </div>
     </div>
   )
