@@ -47,6 +47,20 @@ export function updateCustomStyle(
     ${mapToCss(other)}
   }`
 
+  const document = contents.document as Document;
+
+  const cssLinks = document.querySelectorAll('style');
+  console.log(cssLinks, document.documentElement.outerHTML);
+  if (cssLinks) {
+    cssLinks.forEach(cssLink => cssLink.remove());
+  }
+
+  // <link href="https://fonts.cdnfonts.com/css/bookerly" rel="stylesheet">
+  const bookerlyFontLink = document.createElement('link');
+  bookerlyFontLink.href = '/Icons/fonts.css';
+  bookerlyFontLink.rel = 'stylesheet';
+  document.head.appendChild(bookerlyFontLink);
+
   if (zoom) {
     const body = contents.content as HTMLBodyElement
     const scale = (p: keyof CSSStyleDeclaration) => ({

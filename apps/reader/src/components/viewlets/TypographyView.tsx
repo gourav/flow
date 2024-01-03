@@ -20,7 +20,7 @@ enum TypographyScope {
   Global,
 }
 
-const typefaces = ['default', 'sans-serif', 'serif']
+const typefaces = ['default', 'Bookerly', 'sans-serif', 'serif']
 
 export const TypographyView: React.FC<PaneViewProps> = (props) => {
   const { focusedBookTab } = useReaderSnapshot()

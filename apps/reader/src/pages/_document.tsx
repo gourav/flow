@@ -7,15 +7,20 @@ export default function Document() {
     // so we should set background on `html`
     <Html className="bg-default">
       <Head>
-        <GoogleTagManager />
+        <GoogleTagManager/>
         <link rel="icon" href="/icons/192.png"></link>
-        <PWA />
-        <PreventFlash />
+        <PWA/>
+        <PreventFlash/>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300&family=Open+Sans:wght@400&display=swap"
+              rel="stylesheet"/>
       </Head>
       <body>
-        <GoogleTagManagerNoScript />
-        <Main />
-        <NextScript />
+      <GoogleTagManagerNoScript/>
+      <Main/>
+      <NextScript/>
       </body>
     </Html>
   )
@@ -23,9 +28,9 @@ export default function Document() {
 
 function PWA() {
   return (
-    <>
-      <link rel="manifest" href="/manifest.json" />
-      <meta id="theme-color" name="theme-color" content={background.light} />
+      <>
+        <link rel="manifest" href="/manifest.json"/>
+        <meta id="theme-color" name="theme-color" content={background.light} />
       <link rel="apple-touch-icon" href="/icons/192.png" />
     </>
   )

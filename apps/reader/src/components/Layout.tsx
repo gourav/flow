@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import { ComponentProps, useEffect, useState } from 'react'
 import { useMemo } from 'react'
 import { IconType } from 'react-icons'
+import { FiGithub } from "react-icons/fi";
 import {
   MdFormatUnderlined,
   MdOutlineImage,
@@ -72,6 +73,7 @@ interface IAction {
 interface IViewAction extends IAction {
   name: Action
   View: React.FC<any>
+  click?: () => void
 }
 
 const viewActions: IViewAction[] = [
@@ -124,6 +126,14 @@ const viewActions: IViewAction[] = [
     View: ThemeView,
     env: Env.Desktop | Env.Mobile,
   },
+  {
+    name: 'github',
+    title: 'GitHub',
+    Icon: FiGithub,
+    env: Env.Desktop | Env.Mobile,
+    View: ThemeView,
+    click: () => window.open('github.com/gourav/flow')
+  }
 ]
 
 const ActivityBar: React.FC = () => {
@@ -152,14 +162,14 @@ function ViewActionBar({ className, env }: EnvActionBarProps) {
     <ActionBar className={className}>
       {viewActions
         .filter((a) => a.env & env)
-        .map(({ name, title, Icon }) => {
+        .map(({ name, title, Icon, click }) => {
           const active = action === name
           return (
             <Action
               title={t(`${title}.title`)}
               Icon={Icon}
               active={active}
-              onClick={() => setAction(active ? undefined : name)}
+              onClick={() => click ? click() : setAction(active ? undefined : name)}
               key={name}
             />
           )
